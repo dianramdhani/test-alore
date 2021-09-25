@@ -1,3 +1,16 @@
 .container {
   display: flex;
 }
+
+main {
+  width: calc(100vw - 350px);
+  padding: 0 1.5rem 0 1.5rem;
+}
+
+.navbar2 {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  height: 77;
+  border-bottom: 1px #CCCCCC solid;
+}
