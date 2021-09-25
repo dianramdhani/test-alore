@@ -5,7 +5,7 @@ import { EmojiModule } from '@ctrl/ngx-emoji-mart/ngx-emoji';
 import { PickerModule } from '@ctrl/ngx-emoji-mart';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { SidemenuComponent } from './components/sidemenu/sidemenu.component';
-import { MatInputModule } from '@angular/material/input/typings/input-module';
+import { MatInputModule } from '@angular/material';
 
 @NgModule({
   imports: [CommonModule, MatInputModule],
