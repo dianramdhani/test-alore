@@ -16,22 +16,56 @@
   <main>
     <app-navbar2></app-navbar2>
     <div class="content">
-      <mat-accordion>
-        <mat-expansion-panel>
-          <mat-expansion-panel-header>
-            <mat-panel-title> Personal data </mat-panel-title>
-            <mat-panel-description>
-              Type your name and age
-            </mat-panel-description>
+      <mat-accordion class="segments">
+        <mat-expansion-panel expanded="true">
+          <mat-expansion-panel-header
+            collapsedHeight="100px"
+            expandedHeight="100px"
+          >
+            <mat-panel-title>
+              <h1><i class="dummy"></i> Segment 1</h1>
+            </mat-panel-title>
           </mat-expansion-panel-header>
-          coba test
+          <p>
+            <button
+              mat-stroked-button
+              class="btn-table"
+              style="border-color: red"
+            >
+              <i class="dummy"></i>
+              <span class="btn-table__dot" style="background-color: red"></span>
+              <label class="btn-table__label">Newyork-ITeS-11-50</label>
+            </button>
+
+            <button mat-stroked-button class="btn-plus" title="Add a new table">
+              <i class="plus"></i>
+            </button>
+          </p>
         </mat-expansion-panel>
-        <mat-expansion-panel>
-          <mat-expansion-panel-header>
-            <mat-panel-title> Self aware panel </mat-panel-title>
-            <mat-panel-description> hallo </mat-panel-description>
+        <mat-expansion-panel expanded="true">
+          <mat-expansion-panel-header
+            collapsedHeight="100px"
+            expandedHeight="100px"
+          >
+            <mat-panel-title>
+              <h1><i class="dummy"></i> Segment 1</h1>
+            </mat-panel-title>
           </mat-expansion-panel-header>
-          <p>I'm visible because I am open</p>
+          <p>
+            <button
+              mat-stroked-button
+              class="btn-table"
+              style="border-color: red"
+            >
+              <i class="dummy"></i>
+              <span class="btn-table__dot" style="background-color: red"></span>
+              <label class="btn-table__label">Newyork-ITeS-11-50</label>
+            </button>
+
+            <button mat-stroked-button class="btn-plus" title="Add a new table">
+              <i class="plus"></i>
+            </button>
+          </p>
         </mat-expansion-panel>
       </mat-accordion>
     </div>
