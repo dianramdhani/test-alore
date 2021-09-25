@@ -7,10 +7,8 @@ main {
   padding: 0 1.5rem 0 1.5rem;
 }
 
-.navbar2 {
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-  height: 77;
-  border-bottom: 1px #CCCCCC solid;
+.content {
+  width: 100%;
+  height: calc(100vh - 77px);
+  overflow-y: auto;
 }
