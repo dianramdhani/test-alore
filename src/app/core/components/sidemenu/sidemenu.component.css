@@ -5,14 +5,38 @@
   flex-direction: column;
   gap: 1rem;
   background-color: #f1f1f1;
-  padding: 1rem;
+  padding: 1.5rem;
 }
 
 .sidemenu__title {
-  margin-bottom: 2rem;
   margin-top: 0;
+  margin-bottom: 0.5rem;
+}
+
+.sidemenu__search mat-form-field {
+  width: 100%;
+  padding: 0;
 }
 
 .sidemenu__subtitle {
   color: #3C3C3CB2;
+  margin-top: -0.5rem;
+  text-transform: uppercase;
+}
+
+.sidemenu__menu{
+  list-style-type: none;
+  margin: 0;
+}
+
+.sidemenu__menu li{
+  position: relative;
+  margin-bottom: 1rem;
+}
+
+.sidemenu__menu span{
+  position: absolute;
+  left: -40px;
+  top: 50%;
+  transform: translateY(-50%);
 }
