@@ -1,21 +1,20 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
 import { CoreModule } from './core/core.module';
 import { AppComponent } from './app.component';
-import { MatExpansionModule, MatButtonModule } from '@angular/material';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { SegmentDialogComponent } from './shared/components/segment-dialog/segment-dialog.component';
+import { BtnTableComponent } from './shared/components/btn-table/btn-table.component';
+import { BtnPlusComponent } from './shared/components/btn-plus/btn-plus.component';
 
 @NgModule({
-  imports: [
-    BrowserModule,
-    BrowserAnimationsModule,
-    FormsModule,
-    CoreModule,
-    MatExpansionModule,
-    MatButtonModule,
+  imports: [BrowserModule, CoreModule],
+  entryComponents: [SegmentDialogComponent],
+  declarations: [
+    AppComponent,
+    SegmentDialogComponent,
+    BtnTableComponent,
+    BtnPlusComponent,
   ],
-  declarations: [AppComponent],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

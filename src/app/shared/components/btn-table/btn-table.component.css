@@ -1,0 +1,23 @@
+.btn-table {
+  position: relative;
+}
+
+.btn-table__dot {
+  display: block;
+  width: 9px;
+  height: 9px;
+  position: absolute;
+  right: 11px;
+  top: 7px;
+  border-radius: 50%;
+}
+
+.btn-table__label {
+  position: absolute;
+  bottom: -2.5rem;
+  left: 0;
+  inline-size: 80px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}

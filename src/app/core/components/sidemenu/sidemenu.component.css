@@ -19,24 +19,35 @@
 }
 
 .sidemenu__subtitle {
-  color: #3C3C3CB2;
+  color: #3c3c3cb2;
   margin-top: -0.5rem;
   text-transform: uppercase;
 }
 
-.sidemenu__menu{
+.sidemenu__menu {
   list-style-type: none;
   margin: 0;
 }
 
-.sidemenu__menu li{
+.sidemenu__menu li {
   position: relative;
   margin-bottom: 1rem;
 }
 
-.sidemenu__menu span{
+.sidemenu__menu span {
   position: absolute;
   left: -40px;
   top: 50%;
   transform: translateY(-50%);
+}
+
+.sidemenu__btn-add-segment {
+  margin-top: auto;
+  color: #fff;
+  background-color: #334bfa;
+}
+
+.sidemenu__btn-add-segment i {
+  margin-right: 0.5rem;
+  transform: translateY(-2px);
 }

@@ -1,23 +1,36 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import {} from '@angular/material';
 import { EmojiModule } from '@ctrl/ngx-emoji-mart/ngx-emoji';
 import { PickerModule } from '@ctrl/ngx-emoji-mart';
+import {
+  MatInputModule,
+  MatFormFieldModule,
+  MatExpansionModule,
+  MatButtonModule,
+  MatDialogModule,
+} from '@angular/material';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ReactiveFormsModule } from '@angular/forms';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { SidemenuComponent } from './components/sidemenu/sidemenu.component';
-import { MatInputModule } from '@angular/material';
-import {} from '@angular/material';
 import { Navbar2Component } from './components/navbar2/navbar2.component';
 
 @NgModule({
-  imports: [CommonModule, MatInputModule],
+  imports: [CommonModule, MatInputModule, MatButtonModule],
   declarations: [NavbarComponent, SidemenuComponent, Navbar2Component],
   exports: [
+    EmojiModule,
+    PickerModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatExpansionModule,
+    MatButtonModule,
+    MatDialogModule,
+    BrowserAnimationsModule,
+    ReactiveFormsModule,
     NavbarComponent,
     Navbar2Component,
     SidemenuComponent,
-    EmojiModule,
-    PickerModule,
   ],
 })
 export class CoreModule {}

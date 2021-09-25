@@ -1,0 +1,29 @@
+<form [formGroup]="segmentForm" (ngSubmit)="onSubmit()">
+  <h1 mat-dialog-title>Add a segment</h1>
+  <div mat-dialog-content>
+    <mat-form-field>
+      <input
+        type="text"
+        placeholder="Name"
+        formControlName="name"
+        resizeToFitContent="true"
+        matInput
+      />
+    </mat-form-field>
+    <mat-form-field>
+      <input type="text" placeholder="Icon" formControlName="icon" matInput />
+    </mat-form-field>
+    <mat-form-field>
+      <input
+        type="text"
+        placeholder="Description"
+        formControlName="description"
+        matInput
+      />
+    </mat-form-field>
+  </div>
+  <div mat-dialog-actions>
+    <button mat-button (click)="onNoClick()">No Thanks</button>
+    <button type="submit" mat-button cdkFocusInitial>Ok</button>
+  </div>
+</form>
