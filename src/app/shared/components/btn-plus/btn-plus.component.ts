@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material';
 import { TableDialogComponent } from '../table-dialog/table-dialog.component';
 
@@ -8,11 +8,14 @@ import { TableDialogComponent } from '../table-dialog/table-dialog.component';
   styleUrls: ['./btn-plus.component.css'],
 })
 export class BtnPlusComponent implements OnInit {
+  @Input() index: number;
+
   constructor(private dialog: MatDialog) {}
 
   ngOnInit() {}
 
   openDialog() {
+    console.log(this.index);
     const dialogRef = this.dialog.open(TableDialogComponent, {
       width: '550px',
       data: {},

@@ -1,4 +1,3 @@
-ini segment{{segments | async}}
 <div class="container">
   <app-navbar></app-navbar>
   <app-sidemenu></app-sidemenu>
@@ -6,32 +5,28 @@ ini segment{{segments | async}}
     <app-navbar2></app-navbar2>
     <div class="content">
       <mat-accordion class="segments">
-        <mat-expansion-panel expanded="true">
+        <mat-expansion-panel
+          *ngFor="
+            let segment of segments$ | async;
+            let i = index;
+            first as isFirst
+          "
+          [expanded]="isFirst"
+        >
           <mat-expansion-panel-header
             collapsedHeight="100px"
             expandedHeight="100px"
           >
             <mat-panel-title>
-              <h1><i class="dummy"></i> Segment 1</h1>
+              <h1>
+                <ngx-emoji [emoji]="segment.icon" size="32"></ngx-emoji>
+                {{ segment.name }}
+              </h1>
             </mat-panel-title>
           </mat-expansion-panel-header>
           <p>
-            <app-btn-table></app-btn-table>
-            <app-btn-plus></app-btn-plus>
-          </p>
-        </mat-expansion-panel>
-        <mat-expansion-panel expanded="true">
-          <mat-expansion-panel-header
-            collapsedHeight="100px"
-            expandedHeight="100px"
-          >
-            <mat-panel-title>
-              <h1><i class="dummy"></i> Segment 1</h1>
-            </mat-panel-title>
-          </mat-expansion-panel-header>
-          <p>
-            <app-btn-table></app-btn-table>
-            <app-btn-plus></app-btn-plus>
+            <app-btn-table [segment]="segment"></app-btn-table>
+            <app-btn-plus [index]="i"></app-btn-plus>
           </p>
         </mat-expansion-panel>
       </mat-accordion>
