@@ -7,7 +7,7 @@
     <button id="icon" name="icon" class="form-control emoji-selector">
       <ngx-emoji emoji=":santa::skin-tone-3:" size="32"></ngx-emoji>
     </button>
-    <emoji-mart title="Pick your emoji…"> </emoji-mart>
+    <emoji-mart [showPreview]="false"> </emoji-mart>
     <label for="description">Description</label>
     <textarea
       name="description"
@@ -15,9 +15,33 @@
       rows="5"
       class="form-control"
     ></textarea>
+    <label for="color">Color</label>
+    <button
+      id="color"
+      name="color"
+      class="form-control color-selector"
+      [matMenuTriggerFor]="menu"
+    >
+      <span class="color-selected"></span>
+    </button>
+    <mat-menu #menu="matMenu" class="color-options">
+      <span class="color-options__option"></span>
+      <span class="color-options__option"></span>
+      <span class="color-options__option"></span>
+      <span class="color-options__option"></span>
+      <span class="color-options__option"></span>
+      <span class="color-options__option"></span>
+      <span class="color-options__option"></span>
+      <span class="color-options__option"></span>
+      <span class="color-options__option"></span>
+      <span class="color-options__option"></span>
+      <span class="color-options__option"></span>
+    </mat-menu>
   </div>
   <div mat-dialog-actions>
-    <button mat-button (click)="onNoClick()">No Thanks</button>
-    <button type="submit" mat-button cdkFocusInitial>Ok</button>
+    <button type="submit" class="btn-primary" mat-button>Save</button>
+    <button mat-stroked-button class="btn-secondary" (click)="onNoClick()">
+      Cancel
+    </button>
   </div>
 </form>

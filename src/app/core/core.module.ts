@@ -8,6 +8,7 @@ import {
   MatExpansionModule,
   MatButtonModule,
   MatDialogModule,
+  MatMenuModule,
 } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -26,6 +27,7 @@ import { Navbar2Component } from './components/navbar2/navbar2.component';
     MatExpansionModule,
     MatButtonModule,
     MatDialogModule,
+    MatMenuModule,
     BrowserAnimationsModule,
     ReactiveFormsModule,
     NavbarComponent,

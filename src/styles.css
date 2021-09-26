@@ -43,6 +43,11 @@ button {
   font-size: 16px;
 }
 
+.mat-dialog-title {
+  font-family: 'Inter', sans-serif;
+  font-size: 22px;
+}
+
 /* GENERIC COMPONENT */
 .btn-icon {
   padding: 0 !important;
@@ -79,7 +84,8 @@ button {
   box-shadow: 0 0 0 0.2rem rgb(0 123 255 / 25%);
 }
 
-.emoji-selector {
+.emoji-selector,
+.color-selector {
   height: 38px;
   position: relative;
 }
@@ -91,7 +97,8 @@ button {
   transform: translateY(-40%);
 }
 
-.emoji-selector::after {
+.emoji-selector::after,
+.color-selector::after {
   content: '';
   width: 14px;
   height: 7.86px;
@@ -100,6 +107,56 @@ button {
   top: 50%;
   transform: translateY(-50%);
   background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA8AAAAJCAYAAADtj3ZXAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAACcSURBVHgBpY2xEQIhEEXZS0gpwRIsQTvQDrQCNQIiCYHIDrQTW7AESjAkAv8GBiqcN3M7w+xf2PegEMJZCKG01icxoWKMh1LKJue8HWqtK5yj9/76D+SPAF4QFzwPbAD8QN6NCRjEnkNM6Gvn3JP4AUFJKe9EtMR4M8bsx0BrbeJ7ei/0BD3wA24J0FMP/IEbAtEDm/CXQPXA2fUCh8RyAkP6l7sAAAAASUVORK5CYII=');
+}
+
+.btn-primary {
+  margin-right: 1rem !important;
+  color: #fff;
+  background-color: #3c3c3c80;
+}
+
+.btn-secondary {
+  border-color: #334bfa;
+  color: #334bfa;
+}
+
+.btn-primary,
+.btn-secondary {
+  width: 40%;
+  max-width: 150px;
+  border-radius: 10px !important;
+}
+
+.color-options {
+  width: 220px;
+}
+
+.color-options .mat-menu-content {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.color-options__option,
+.color-selected {
+  display: inline-block;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  margin: 8px;
+  background-color: red;
+  cursor: pointer;
+}
+
+.color-options__option:hover {
+  opacity: 0.7;
+}
+
+.color-selected {
+  position: absolute;
+  left: 0.2rem;
+  top: 30%;
+  transform: translateY(-50%);
 }
 
 /* ICON */
