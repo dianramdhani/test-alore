@@ -1,26 +1,20 @@
 <form [formGroup]="segmentForm" (ngSubmit)="onSubmit()">
   <h1 mat-dialog-title>Add a segment</h1>
-  <div mat-dialog-content>
-    <mat-form-field>
-      <input
-        type="text"
-        placeholder="Name"
-        formControlName="name"
-        resizeToFitContent="true"
-        matInput
-      />
-    </mat-form-field>
-    <mat-form-field>
-      <input type="text" placeholder="Icon" formControlName="icon" matInput />
-    </mat-form-field>
-    <mat-form-field>
-      <input
-        type="text"
-        placeholder="Description"
-        formControlName="description"
-        matInput
-      />
-    </mat-form-field>
+  <div style="padding-bottom: 1rem" mat-dialog-content>
+    <label for="name">Name</label>
+    <input type="text" id="name" name="name" class="form-control" />
+    <label for="icon">Icon</label>
+    <button id="icon" name="icon" class="form-control emoji-selector">
+      <ngx-emoji emoji=":santa::skin-tone-3:" size="32"></ngx-emoji>
+    </button>
+    <emoji-mart title="Pick your emoji…"> </emoji-mart>
+    <label for="description">Description</label>
+    <textarea
+      name="description"
+      id="description"
+      rows="5"
+      class="form-control"
+    ></textarea>
   </div>
   <div mat-dialog-actions>
     <button mat-button (click)="onNoClick()">No Thanks</button>

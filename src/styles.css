@@ -1,10 +1,22 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@700&display=swap');
 
-/* LAYOUT */
+/* REBOOT */
 html,
 body {
   margin: 0;
   overflow-y: hidden;
+}
+
+*,
+::after,
+::before {
+  box-sizing: border-box;
+}
+
+.emoji-mart {
+  width: 100% !important;
+  margin-top: -1.5rem;
+  margin-bottom: 1.5rem;
 }
 
 /* TYPOGRAPHY */
@@ -22,6 +34,8 @@ h3 {
 }
 
 label {
+  display: block;
+  margin-bottom: 0.5rem;
   font-size: 16px;
 }
 
@@ -40,6 +54,52 @@ button {
   border-width: 2px !important;
   margin-right: 1.5rem !important;
   border-radius: 10px !important;
+}
+
+.form-control {
+  display: block;
+  width: 100%;
+  padding: 0.375rem 0.75rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #495057;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid #ced4da;
+  border-radius: 0.25rem;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  margin-bottom: 1.5rem;
+}
+
+.form-control:focus {
+  color: #495057;
+  background-color: #fff;
+  border-color: #80bdff;
+  outline: 0;
+  box-shadow: 0 0 0 0.2rem rgb(0 123 255 / 25%);
+}
+
+.emoji-selector {
+  height: 38px;
+  position: relative;
+}
+
+.emoji-selector ngx-emoji {
+  position: absolute;
+  left: 0.5rem;
+  top: 50%;
+  transform: translateY(-40%);
+}
+
+.emoji-selector::after {
+  content: '';
+  width: 14px;
+  height: 7.86px;
+  position: absolute;
+  right: 0.5rem;
+  top: 50%;
+  transform: translateY(-50%);
+  background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA8AAAAJCAYAAADtj3ZXAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAACcSURBVHgBpY2xEQIhEEXZS0gpwRIsQTvQDrQCNQIiCYHIDrQTW7AESjAkAv8GBiqcN3M7w+xf2PegEMJZCKG01icxoWKMh1LKJue8HWqtK5yj9/76D+SPAF4QFzwPbAD8QN6NCRjEnkNM6Gvn3JP4AUFJKe9EtMR4M8bsx0BrbeJ7ei/0BD3wA24J0FMP/IEbAtEDm/CXQPXA2fUCh8RyAkP6l7sAAAAASUVORK5CYII=');
 }
 
 /* ICON */
