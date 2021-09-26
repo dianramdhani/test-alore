@@ -12,7 +12,7 @@ export class SidemenuComponent implements OnInit {
 
   ngOnInit() {}
 
-  openDialog(): void {
+  openDialog() {
     const dialogRef = this.dialog.open(SegmentDialogComponent, {
       width: '550px',
       data: {},

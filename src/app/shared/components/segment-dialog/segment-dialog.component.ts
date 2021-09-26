@@ -26,7 +26,7 @@ export class SegmentDialogComponent implements OnInit {
     console.log(name, icon, description);
   }
 
-  onNoClick(): void {
+  onNoClick() {
     this.dialogRef.close();
   }
 }
