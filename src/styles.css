@@ -19,6 +19,13 @@ body {
   margin-bottom: 1.5rem;
 }
 
+.mat-dialog-actions {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  flex: 0 100px;
+}
+
 /* TYPOGRAPHY */
 body {
   font-family: 'Inter', sans-serif;

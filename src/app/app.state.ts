@@ -39,6 +39,11 @@ export class AddTable {
   constructor(public readonly payload: { segmentId: any; table: Table }) {}
 }
 
+export class UpdateTable {
+  static readonly type = '[TABLE] Update';
+  constructor(public readonly payload: { segmentId: any; table: Table }) {}
+}
+
 @Injectable()
 @State<Array<Segment>>({
   name: 'prospector',
@@ -90,6 +95,27 @@ export class ProspectorState {
           ? { ...segment, tables: [...segment.tables, payload.table] }
           : segment
       )
+    );
+  }
+
+  @Action(UpdateTable)
+  public updateTable(
+    { setState }: StateContext<Segment[]>,
+    { payload }: UpdateTable
+  ) {
+    setState((state) =>
+      state.map((segment) => {
+        if (segment.id === payload.segmentId) {
+          return {
+            ...segment,
+            tables: segment.tables.map((table) =>
+              table.id === payload.table.id ? payload.table : table
+            ),
+          };
+        } else {
+          return segment;
+        }
+      })
     );
   }
 }

@@ -1,4 +1,4 @@
-import { Component, Inject } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { Table } from '../../../app.state';
@@ -8,7 +8,7 @@ import { Table } from '../../../app.state';
   templateUrl: './table-dialog.component.html',
   styleUrls: ['./table-dialog.component.css'],
 })
-export class TableDialogComponent {
+export class TableDialogComponent implements OnInit {
   tableForm: FormGroup;
   colorPalette: string[];
   showEmoji = false;
@@ -17,12 +17,6 @@ export class TableDialogComponent {
     public dialogRef: MatDialogRef<TableDialogComponent>,
     @Inject(MAT_DIALOG_DATA) public data: Table
   ) {
-    this.tableForm = new FormGroup({
-      name: new FormControl('', [Validators.required]),
-      icon: new FormControl('', [Validators.required]),
-      color: new FormControl('', [Validators.required]),
-    });
-
     this.colorPalette = [
       'rgba(207, 223, 255, 1)',
       'rgba(156, 199, 255, 1)',
@@ -86,6 +80,22 @@ export class TableDialogComponent {
     ];
   }
 
+  ngOnInit() {
+    if (this.data) {
+      this.tableForm = new FormGroup({
+        name: new FormControl(this.data.name, [Validators.required]),
+        icon: new FormControl(this.data.icon, [Validators.required]),
+        color: new FormControl(this.data.color, [Validators.required]),
+      });
+    } else {
+      this.tableForm = new FormGroup({
+        name: new FormControl('', [Validators.required]),
+        icon: new FormControl('', [Validators.required]),
+        color: new FormControl('', [Validators.required]),
+      });
+    }
+  }
+
   onSubmit() {
     if (this.tableForm.valid) {
       const { name, icon, color } = this.tableForm.value;
@@ -93,6 +103,8 @@ export class TableDialogComponent {
       this.dialogRef.close(this.data);
     }
   }
+
+  onRemove() {}
 
   setColor(color: string) {
     this.tableForm.patchValue({ color });

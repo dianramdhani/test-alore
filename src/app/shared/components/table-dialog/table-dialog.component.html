@@ -54,16 +54,36 @@
     </mat-menu>
   </div>
   <div mat-dialog-actions>
+    <ng-container *ngIf="data !== null; else update">
+      <button
+        type="submit"
+        class="btn-primary"
+        mat-button
+        [disabled]="!tableForm.valid"
+      >
+        Update
+      </button>
+      <button type="button" class="btn-danger" mat-button (click)="onRemove()">
+        Remove
+      </button>
+    </ng-container>
     <button
-      type="submit"
-      class="btn-primary"
-      mat-button
-      [disabled]="!tableForm.valid"
+      mat-stroked-button
+      class="btn-secondary"
+      (click)="dialogRef.close()"
     >
-      Save
-    </button>
-    <button mat-stroked-button class="btn-secondary" (click)="dialogRef.close()">
       Cancel
     </button>
   </div>
 </form>
+
+<ng-template #update>
+  <button
+    type="submit"
+    class="btn-primary"
+    mat-button
+    [disabled]="!tableForm.valid"
+  >
+    Save
+  </button>
+</ng-template>

@@ -2,6 +2,7 @@
   mat-stroked-button
   class="btn-icon btn-table"
   [style.border-color]="table.color"
+  (click)="updateTable()"
 >
   <ngx-emoji size="32" [emoji]="table.icon"></ngx-emoji>
   <span class="btn-table__dot" [style.background-color]="table.color"></span>

@@ -41,10 +41,7 @@
       formControlName="description"
     ></textarea>
   </div>
-  <div
-    mat-dialog-actions
-    style="display: flex; gap: 1rem; flex-wrap: wrap;flex: 0 100px;"
-  >
+  <div mat-dialog-actions>
     <ng-container *ngIf="data !== null; else update">
       <button
         type="submit"
