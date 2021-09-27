@@ -1,4 +1,10 @@
-import { State, Action, StateContext } from '@ngxs/store';
+import {
+  State,
+  Action,
+  StateContext,
+  Selector,
+  createSelector,
+} from '@ngxs/store';
 import { Injectable } from '@angular/core';
 import { append } from '@ngxs/store/operators';
 import { UUID } from 'angular2-uuid';
@@ -49,7 +55,7 @@ export class RemoveTable {
 }
 
 @Injectable()
-@State<Array<Segment>>({
+@State<Segment[]>({
   name: 'prospector',
   defaults: [
     {
@@ -133,6 +139,20 @@ export class RemoveTable {
   ],
 })
 export class ProspectorState {
+  @Selector()
+  static nameFilter(name: string) {
+    return createSelector(
+      [ProspectorState],
+      (state: { prospector: Segment[] }) => {
+        return name
+          ? state.prospector.filter(({ name: _name }) =>
+              _name.toLowerCase().includes(name.toLowerCase())
+            )
+          : state.prospector;
+      }
+    );
+  }
+
   @Action(AddSegment)
   public addSegment(
     { setState }: StateContext<Segment[]>,

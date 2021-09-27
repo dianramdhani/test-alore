@@ -1,8 +1,12 @@
 <div class="sidemenu">
   <h1 class="sidemenu__title">Prospector</h1>
-  <form class="sidemenu__search">
+  <form class="sidemenu__search" [formGroup]="searchForm">
     <mat-form-field class="example-full-width">
-      <input matInput placeholder="Search for a table or a segment" />
+      <input
+        matInput
+        placeholder="Search for a table or a segment"
+        formControlName="name"
+      />
     </mat-form-field>
   </form>
   <h3 class="sidemenu__subtitle">Segments</h3>

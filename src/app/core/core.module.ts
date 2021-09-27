@@ -17,7 +17,13 @@ import { SidemenuComponent } from './components/sidemenu/sidemenu.component';
 import { Navbar2Component } from './components/navbar2/navbar2.component';
 
 @NgModule({
-  imports: [CommonModule, MatInputModule, MatButtonModule, EmojiModule],
+  imports: [
+    CommonModule,
+    MatInputModule,
+    MatButtonModule,
+    EmojiModule,
+    ReactiveFormsModule,
+  ],
   declarations: [NavbarComponent, SidemenuComponent, Navbar2Component],
   exports: [
     EmojiModule,
