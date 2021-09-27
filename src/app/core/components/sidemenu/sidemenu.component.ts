@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material';
+import { Store } from '@ngxs/store';
+import { UUID } from 'angular2-uuid';
+import { AddSegment } from '../../../app.state';
 import { SegmentDialogComponent } from '../../../shared/components/segment-dialog/segment-dialog.component';
 
 @Component({
@@ -8,18 +11,20 @@ import { SegmentDialogComponent } from '../../../shared/components/segment-dialo
   styleUrls: ['./sidemenu.component.css'],
 })
 export class SidemenuComponent implements OnInit {
-  constructor(public dialog: MatDialog) {}
+  constructor(public dialog: MatDialog, private store: Store) {}
 
   ngOnInit() {}
 
   openDialog() {
     const dialogRef = this.dialog.open(SegmentDialogComponent, {
       width: '550px',
-      data: {},
     });
 
-    dialogRef.afterClosed().subscribe((result) => {
-      console.log('The dialog was closed');
+    dialogRef.afterClosed().subscribe((segment) => {
+      if (segment) {
+        const id = UUID.UUID();
+        this.store.dispatch(new AddSegment({ ...segment, tables: [], id }));
+      }
     });
   }
 }

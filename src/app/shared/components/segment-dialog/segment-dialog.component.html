@@ -50,7 +50,11 @@
     >
       Save
     </button>
-    <button mat-stroked-button class="btn-secondary" (click)="onNoClick()">
+    <button
+      mat-stroked-button
+      class="btn-secondary"
+      (click)="dialogRef.close()"
+    >
       Cancel
     </button>
   </div>
