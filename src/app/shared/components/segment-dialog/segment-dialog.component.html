@@ -41,21 +41,41 @@
       formControlName="description"
     ></textarea>
   </div>
-  <div mat-dialog-actions>
+  <div
+    mat-dialog-actions
+    style="display: flex; gap: 1rem; flex-wrap: wrap;flex: 0 100px;"
+  >
+    <ng-container *ngIf="data !== null; else update">
+      <button
+        type="submit"
+        class="btn-primary"
+        mat-button
+        [disabled]="!segmentForm.valid"
+      >
+        Update
+      </button>
+      <button type="button" class="btn-danger" mat-button (click)="onRemove()">
+        Remove
+      </button>
+    </ng-container>
     <button
-      type="submit"
-      class="btn-primary"
-      mat-button
-      [disabled]="!segmentForm.valid"
-    >
-      Save
-    </button>
-    <button
-      mat-stroked-button
+      type="button"
       class="btn-secondary"
+      mat-stroked-button
       (click)="dialogRef.close()"
     >
       Cancel
     </button>
   </div>
 </form>
+
+<ng-template #update>
+  <button
+    type="submit"
+    class="btn-primary"
+    mat-button
+    [disabled]="!segmentForm.valid"
+  >
+    Save
+  </button>
+</ng-template>

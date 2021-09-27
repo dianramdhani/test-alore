@@ -24,8 +24,18 @@ export class AddSegment {
   constructor(public readonly payload: Segment) {}
 }
 
+export class UpdateSegment {
+  static readonly type = '[SEGMENT] Update';
+  constructor(public readonly payload: Segment) {}
+}
+
+export class RemoveSegment {
+  static readonly type = '[SEGMENT] Remove';
+  constructor(public readonly payload: any) {}
+}
+
 export class AddTable {
-  static readonly type = '[TABLE] Add Table';
+  static readonly type = '[TABLE] Create';
   constructor(public readonly payload: { segmentId: any; table: Table }) {}
 }
 
@@ -44,11 +54,29 @@ export class AddTable {
 })
 export class ProspectorState {
   @Action(AddSegment)
-  public addTodo(
+  public addSegment(
     { setState }: StateContext<Segment[]>,
     { payload }: AddSegment
   ) {
     setState(append([payload]));
+  }
+
+  @Action(UpdateSegment)
+  public updateSegment(
+    { setState }: StateContext<Segment[]>,
+    { payload }: UpdateSegment
+  ) {
+    setState((state) =>
+      state.map((segment) => (segment.id === payload.id ? payload : segment))
+    );
+  }
+
+  @Action(RemoveSegment)
+  public removeSegment(
+    { setState }: StateContext<Segment[]>,
+    { payload }: RemoveSegment
+  ) {
+    setState((state) => state.filter(({ id }) => id !== payload));
   }
 
   @Action(AddTable)

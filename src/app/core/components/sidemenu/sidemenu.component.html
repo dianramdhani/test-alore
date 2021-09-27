@@ -7,11 +7,11 @@
   </form>
   <h3 class="sidemenu__subtitle">Segments</h3>
   <ul class="sidemenu__menu">
-    <li *ngFor="let segment of segments$ | async">
-      <ngx-emoji
-        [emoji]="segment.icon"
-        size="20"
-      ></ngx-emoji>
+    <li
+      *ngFor="let segment of segments$ | async"
+      (click)="updateSegment(segment)"
+    >
+      <ngx-emoji [emoji]="segment.icon" size="20"></ngx-emoji>
       {{ segment.name }}
     </li>
   </ul>

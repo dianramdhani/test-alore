@@ -123,11 +123,17 @@ button {
   color: #334bfa;
 }
 
+.btn-danger {
+  background-color: rgb(212, 82, 30);
+  color: #fff;
+}
+
 .btn-primary,
-.btn-secondary {
-  width: 40%;
-  max-width: 150px;
+.btn-secondary,
+.btn-danger {
   border-radius: 10px !important;
+  margin: 0 !important;
+  flex-basis: 120px;
 }
 
 .color-options {

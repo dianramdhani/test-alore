@@ -3,7 +3,12 @@ import { MatDialog } from '@angular/material';
 import { Select, Store } from '@ngxs/store';
 import { UUID } from 'angular2-uuid';
 import { Observable } from 'rxjs';
-import { AddSegment, ProspectorState, Segment } from '../../../app.state';
+import {
+  AddSegment,
+  ProspectorState,
+  Segment,
+  UpdateSegment,
+} from '../../../app.state';
 import { SegmentDialogComponent } from '../../../shared/components/segment-dialog/segment-dialog.component';
 
 @Component({
@@ -25,6 +30,19 @@ export class SidemenuComponent {
       if (segment) {
         const id = UUID.UUID();
         this.store.dispatch(new AddSegment({ ...segment, tables: [], id }));
+      }
+    });
+  }
+
+  updateSegment(segment: Segment) {
+    const dialogRef = this.dialog.open(SegmentDialogComponent, {
+      width: '550px',
+      data: segment,
+    });
+
+    dialogRef.afterClosed().subscribe((segment) => {
+      if (segment) {
+        this.store.dispatch(new UpdateSegment(segment));
       }
     });
   }
