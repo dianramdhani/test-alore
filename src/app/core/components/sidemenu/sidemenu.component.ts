@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { MatDialog } from '@angular/material';
 import { Select, Store } from '@ngxs/store';
-import { UUID } from 'angular2-uuid';
 import { Observable } from 'rxjs';
 import {
   AddSegment,
@@ -28,8 +27,7 @@ export class SidemenuComponent {
 
     dialogRef.afterClosed().subscribe((segment) => {
       if (segment) {
-        const id = UUID.UUID();
-        this.store.dispatch(new AddSegment({ ...segment, tables: [], id }));
+        this.store.dispatch(new AddSegment({ ...segment, tables: [] }));
       }
     });
   }

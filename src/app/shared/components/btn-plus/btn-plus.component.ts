@@ -2,8 +2,7 @@ import { Component, Input } from '@angular/core';
 import { MatDialog } from '@angular/material';
 import { Store } from '@ngxs/store';
 import { TableDialogComponent } from '../table-dialog/table-dialog.component';
-import { UUID } from 'angular2-uuid';
-import { AddTable, Table } from '../../../app.state';
+import { AddTable } from '../../../app.state';
 
 @Component({
   selector: 'app-btn-plus',
@@ -25,7 +24,7 @@ export class BtnPlusComponent {
         this.store.dispatch(
           new AddTable({
             segmentId: this.segmentId,
-            table: { ...table, id: UUID.UUID() },
+            table,
           })
         );
       }

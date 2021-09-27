@@ -1,8 +1,7 @@
 import { State, Action, StateContext } from '@ngxs/store';
 import { Injectable } from '@angular/core';
-import { patch } from '@ngxs/store/operators/patch';
-import { updateItem } from '@ngxs/store/operators/update-item';
 import { append } from '@ngxs/store/operators';
+import { UUID } from 'angular2-uuid';
 
 export interface Table {
   name: String;
@@ -68,7 +67,7 @@ export class ProspectorState {
     { setState }: StateContext<Segment[]>,
     { payload }: AddSegment
   ) {
-    setState(append([payload]));
+    setState(append([{ ...payload, id: UUID.UUID() }]));
   }
 
   @Action(UpdateSegment)
@@ -97,7 +96,13 @@ export class ProspectorState {
     setState((state) =>
       state.map((segment) =>
         segment.id === payload.segmentId
-          ? { ...segment, tables: [...segment.tables, payload.table] }
+          ? {
+              ...segment,
+              tables: [
+                ...segment.tables,
+                { ...payload.table, id: UUID.UUID() },
+              ],
+            }
           : segment
       )
     );
