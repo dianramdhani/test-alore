@@ -53,11 +53,82 @@ export class RemoveTable {
   name: 'prospector',
   defaults: [
     {
-      id: 1,
-      name: 'test',
+      id: UUID.UUID(),
+      name: 'Segment 1',
       icon: ':laughing:',
-      description: 'test',
-      tables: [],
+      description: 'Description for Segment 1',
+      tables: [
+        {
+          id: UUID.UUID(),
+          name: 'Table 1',
+          icon: ':grin:',
+          color: 'rgba(97, 199, 108, 1',
+        },
+        {
+          id: UUID.UUID(),
+          name: 'Table 2',
+          icon: ':stuck_out_tongue_winking_eye:',
+          color: 'rgba(142, 150, 255, 1)',
+        },
+        {
+          id: UUID.UUID(),
+          name: 'Table 3',
+          icon: ':laughing:',
+          color: 'rgba(207, 223, 255, 1)',
+        },
+      ],
+    },
+    {
+      id: UUID.UUID(),
+      name: 'Segment 2',
+      icon: ':grin:',
+      description: 'Description for Segment 1',
+      tables: [
+        {
+          id: UUID.UUID(),
+          name: 'Table 1',
+          icon: ':stuck_out_tongue_winking_eye:',
+          color: 'rgba(142, 150, 255, 1)',
+        },
+        {
+          id: UUID.UUID(),
+          name: 'Table 2',
+          icon: ':laughing:',
+          color: 'rgba(207, 223, 255, 1)',
+        },
+        {
+          id: UUID.UUID(),
+          name: 'Table 3',
+          icon: ':grin:',
+          color: 'rgba(97, 199, 108, 1',
+        },
+      ],
+    },
+    {
+      id: UUID.UUID(),
+      name: 'Segment 3',
+      icon: ':stuck_out_tongue_winking_eye:',
+      description: 'Description for Segment 1',
+      tables: [
+        {
+          id: UUID.UUID(),
+          name: 'Table 1',
+          icon: ':laughing:',
+          color: 'rgba(207, 223, 255, 1)',
+        },
+        {
+          id: UUID.UUID(),
+          name: 'Table 2',
+          icon: ':stuck_out_tongue_winking_eye:',
+          color: 'rgba(97, 199, 108, 1',
+        },
+        {
+          id: UUID.UUID(),
+          name: 'Table 3',
+          icon: ':laughing:',
+          color: 'rgba(142, 150, 255, 1)',
+        },
+      ],
     },
   ],
 })
