@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Segment } from '../../../app.state';
+import { Table } from '../../../app.state';
 
 @Component({
   selector: 'app-btn-table',
@@ -7,10 +7,7 @@ import { Segment } from '../../../app.state';
   styleUrls: ['./btn-table.component.css'],
 })
 export class BtnTableComponent implements OnInit {
-  /**
-   * @Todo ganti jadi table
-   */
-  @Input() segment: Segment;
+  @Input() table: Table;
 
   constructor() {}
 

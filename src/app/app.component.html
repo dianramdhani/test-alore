@@ -21,7 +21,10 @@
             </mat-panel-title>
           </mat-expansion-panel-header>
           <p>
-            <app-btn-table [segment]="segment"></app-btn-table>
+            <app-btn-table
+              *ngFor="let table of segment.tables"
+              [table]="table"
+            ></app-btn-table>
             <app-btn-plus [segmentId]="segment.id"></app-btn-plus>
           </p>
         </mat-expansion-panel>
