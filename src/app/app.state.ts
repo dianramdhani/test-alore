@@ -8,7 +8,7 @@ export interface Table {
   name: String;
   icon: String;
   color: String;
-  id: any;
+  id?: any;
 }
 
 export interface Segment {
@@ -16,7 +16,7 @@ export interface Segment {
   icon: String;
   description: String;
   tables: Table[];
-  id: any;
+  id?: any;
 }
 
 export class AddSegment {
@@ -42,6 +42,11 @@ export class AddTable {
 export class UpdateTable {
   static readonly type = '[TABLE] Update';
   constructor(public readonly payload: { segmentId: any; table: Table }) {}
+}
+
+export class RemoveTable {
+  static readonly type = '[TABLE] Remove';
+  constructor(public readonly payload: { segmentId: any; tableId: any }) {}
 }
 
 @Injectable()
@@ -111,6 +116,25 @@ export class ProspectorState {
             tables: segment.tables.map((table) =>
               table.id === payload.table.id ? payload.table : table
             ),
+          };
+        } else {
+          return segment;
+        }
+      })
+    );
+  }
+
+  @Action(RemoveTable)
+  public removeTable(
+    { setState }: StateContext<Segment[]>,
+    { payload }: RemoveTable
+  ) {
+    setState((state) =>
+      state.map((segment) => {
+        if (segment.id === payload.segmentId) {
+          return {
+            ...segment,
+            tables: segment.tables.filter(({ id }) => id !== payload.tableId),
           };
         } else {
           return segment;

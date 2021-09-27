@@ -28,6 +28,7 @@
             <app-btn-table
               *ngFor="let table of segment.tables"
               [table]="table"
+              [segmentId]="segment.id"
             ></app-btn-table>
             <app-btn-plus [segmentId]="segment.id"></app-btn-plus>
           </p>

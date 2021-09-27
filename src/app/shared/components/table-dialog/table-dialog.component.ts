@@ -1,7 +1,8 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
-import { Table } from '../../../app.state';
+import { Store } from '@ngxs/store';
+import { RemoveTable, Table } from '../../../app.state';
 
 @Component({
   selector: 'app-table-dialog',
@@ -15,7 +16,8 @@ export class TableDialogComponent implements OnInit {
 
   constructor(
     public dialogRef: MatDialogRef<TableDialogComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: Table
+    @Inject(MAT_DIALOG_DATA) public data: { table: Table; segmentId: any },
+    private store: Store
   ) {
     this.colorPalette = [
       'rgba(207, 223, 255, 1)',
@@ -83,9 +85,9 @@ export class TableDialogComponent implements OnInit {
   ngOnInit() {
     if (this.data) {
       this.tableForm = new FormGroup({
-        name: new FormControl(this.data.name, [Validators.required]),
-        icon: new FormControl(this.data.icon, [Validators.required]),
-        color: new FormControl(this.data.color, [Validators.required]),
+        name: new FormControl(this.data.table.name, [Validators.required]),
+        icon: new FormControl(this.data.table.icon, [Validators.required]),
+        color: new FormControl(this.data.table.color, [Validators.required]),
       });
     } else {
       this.tableForm = new FormGroup({
@@ -99,12 +101,25 @@ export class TableDialogComponent implements OnInit {
   onSubmit() {
     if (this.tableForm.valid) {
       const { name, icon, color } = this.tableForm.value;
-      this.data = { ...this.data, name, icon, color };
-      this.dialogRef.close(this.data);
+      let table: Table;
+      if (this.data) {
+        table = { ...this.data.table, name, icon, color };
+      } else {
+        table = { name, icon, color };
+      }
+      this.dialogRef.close(table);
     }
   }
 
-  onRemove() {}
+  onRemove() {
+    this.store.dispatch(
+      new RemoveTable({
+        segmentId: this.data.segmentId,
+        tableId: this.data.table.id,
+      })
+    );
+    this.dialogRef.close();
+  }
 
   setColor(color: string) {
     this.tableForm.patchValue({ color });
