@@ -15,7 +15,7 @@ export class BtnPlusComponent {
 
   constructor(private dialog: MatDialog, private store: Store) {}
 
-  openDialog() {
+  addTable() {
     const dialogRef = this.dialog.open(TableDialogComponent, {
       width: '550px',
     });

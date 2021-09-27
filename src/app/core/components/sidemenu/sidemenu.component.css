@@ -27,6 +27,12 @@
 .sidemenu__menu {
   list-style-type: none;
   margin: 0;
+  padding-left: 1.5rem;
+  cursor: pointer;
+}
+
+.sidemenu__menu:hover {
+  opacity: 0.8;
 }
 
 .sidemenu__menu li {
@@ -34,9 +40,9 @@
   margin-bottom: 1rem;
 }
 
-.sidemenu__menu span {
+.sidemenu__menu ngx-emoji {
   position: absolute;
-  left: -40px;
+  left: -1.5rem;
   top: 50%;
   transform: translateY(-50%);
 }

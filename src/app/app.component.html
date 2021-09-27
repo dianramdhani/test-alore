@@ -14,8 +14,12 @@
             expandedHeight="100px"
           >
             <mat-panel-title>
-              <h1>
-                <ngx-emoji [emoji]="segment.icon" size="32"></ngx-emoji>
+              <h1 style="display: flex">
+                <ngx-emoji
+                  [emoji]="segment.icon"
+                  size="32"
+                  style="margin-right: 0.5rem"
+                ></ngx-emoji>
                 {{ segment.name }}
               </h1>
             </mat-panel-title>

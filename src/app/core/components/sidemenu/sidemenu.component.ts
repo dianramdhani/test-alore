@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { MatDialog } from '@angular/material';
-import { Store } from '@ngxs/store';
+import { Select, Store } from '@ngxs/store';
 import { UUID } from 'angular2-uuid';
-import { AddSegment } from '../../../app.state';
+import { Observable } from 'rxjs';
+import { AddSegment, ProspectorState, Segment } from '../../../app.state';
 import { SegmentDialogComponent } from '../../../shared/components/segment-dialog/segment-dialog.component';
 
 @Component({
@@ -10,12 +11,12 @@ import { SegmentDialogComponent } from '../../../shared/components/segment-dialo
   templateUrl: './sidemenu.component.html',
   styleUrls: ['./sidemenu.component.css'],
 })
-export class SidemenuComponent implements OnInit {
+export class SidemenuComponent {
+  @Select(ProspectorState) segments$: Observable<Segment[]>;
+
   constructor(public dialog: MatDialog, private store: Store) {}
 
-  ngOnInit() {}
-
-  openDialog() {
+  addSegment() {
     const dialogRef = this.dialog.open(SegmentDialogComponent, {
       width: '550px',
     });
