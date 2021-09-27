@@ -1,14 +1,14 @@
-import { Component, OnInit, Inject } from '@angular/core';
+import { Component, Inject } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
-import { AddTable, Table } from '../../../app.state';
+import { Table } from '../../../app.state';
 
 @Component({
   selector: 'app-table-dialog',
   templateUrl: './table-dialog.component.html',
   styleUrls: ['./table-dialog.component.css'],
 })
-export class TableDialogComponent implements OnInit {
+export class TableDialogComponent {
   tableForm: FormGroup;
   colorPalette: string[];
   showEmoji = false;
@@ -86,18 +86,12 @@ export class TableDialogComponent implements OnInit {
     ];
   }
 
-  ngOnInit() {}
-
   onSubmit() {
     if (this.tableForm.valid) {
       const { name, icon, color } = this.tableForm.value;
       this.data = { ...this.data, name, icon, color };
       this.dialogRef.close(this.data);
     }
-  }
-
-  onNoClick() {
-    this.dialogRef.close();
   }
 
   setColor(color: string) {
