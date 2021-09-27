@@ -24,7 +24,9 @@ export class BtnPlusComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe((table) => {
-      this.store.dispatch(new AddTable({ segmentId: this.segmentId, table }));
+      if (table.name) {
+        this.store.dispatch(new AddTable({ segmentId: this.segmentId, table }));
+      }
     });
   }
 }

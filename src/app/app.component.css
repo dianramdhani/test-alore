@@ -16,3 +16,9 @@ main {
 .content p {
   padding-bottom: 2rem;
 }
+
+.tables-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
