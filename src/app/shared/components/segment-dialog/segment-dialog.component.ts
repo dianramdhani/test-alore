@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { Store } from '@ngxs/store';
+import { UUID } from 'angular2-uuid';
 import { AddSegment } from '../../../app.state';
 
 @Component({
@@ -30,8 +31,9 @@ export class SegmentDialogComponent implements OnInit {
   onSubmit() {
     if (this.segmentForm.valid) {
       const { name, icon, description } = this.segmentForm.value;
+      const id = UUID.UUID();
       this.store.dispatch(
-        new AddSegment({ name, icon, description, tables: [] })
+        new AddSegment({ name, icon, description, tables: [], id })
       );
       this.dialogRef.close();
     }

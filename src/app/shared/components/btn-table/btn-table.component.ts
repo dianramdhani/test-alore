@@ -14,7 +14,5 @@ export class BtnTableComponent implements OnInit {
 
   constructor() {}
 
-  ngOnInit() {
-    console.log(this.segment);
-  }
+  ngOnInit() {}
 }

@@ -1,13 +1,36 @@
-<form [formGroup]="tableForm" (ngSubmit)="onSubmit()">
+<form
+  [formGroup]="tableForm"
+  (ngSubmit)="onSubmit()"
+  (onfocus)="showEmoji = false"
+>
   <h1 mat-dialog-title>Add a table</h1>
   <div style="padding-bottom: 1rem" mat-dialog-content>
     <label for="name">Name</label>
-    <input type="text" id="name" name="name" class="form-control" />
+    <input
+      type="text"
+      id="name"
+      name="name"
+      class="form-control"
+      formControlName="name"
+    />
     <label for="icon">Icon</label>
-    <button id="icon" name="icon" class="form-control emoji-selector">
-      <ngx-emoji emoji=":santa::skin-tone-3:" size="32"></ngx-emoji>
+    <button
+      id="icon"
+      name="icon"
+      class="form-control emoji-selector"
+      (click)="showEmoji = !showEmoji"
+    >
+      <ngx-emoji
+        size="32"
+        *ngIf="tableForm.value.icon"
+        [emoji]="tableForm.value.icon"
+      ></ngx-emoji>
     </button>
-    <emoji-mart [showPreview]="false"> </emoji-mart>
+    <emoji-mart
+      [showPreview]="false"
+      *ngIf="showEmoji"
+      (emojiClick)="setIcon($event)"
+    ></emoji-mart>
     <label for="color">Color</label>
     <button
       id="color"
@@ -15,24 +38,30 @@
       class="form-control color-selector"
       [matMenuTriggerFor]="menu"
     >
-      <span class="color-selected"></span>
+      <span
+        class="color-selected"
+        *ngIf="tableForm.value.color"
+        [style.background-color]="tableForm.value.color"
+      ></span>
     </button>
     <mat-menu #menu="matMenu" class="color-options">
-      <span class="color-options__option"></span>
-      <span class="color-options__option"></span>
-      <span class="color-options__option"></span>
-      <span class="color-options__option"></span>
-      <span class="color-options__option"></span>
-      <span class="color-options__option"></span>
-      <span class="color-options__option"></span>
-      <span class="color-options__option"></span>
-      <span class="color-options__option"></span>
-      <span class="color-options__option"></span>
-      <span class="color-options__option"></span>
+      <span
+        class="color-options__option"
+        *ngFor="let color of colorPalette"
+        [style.background-color]="color"
+        (click)="setColor(color)"
+      ></span>
     </mat-menu>
   </div>
   <div mat-dialog-actions>
-    <button type="submit" class="btn-primary" mat-button>Save</button>
+    <button
+      type="submit"
+      class="btn-primary"
+      mat-button
+      [disabled]="!tableForm.valid"
+    >
+      Save
+    </button>
     <button mat-stroked-button class="btn-secondary" (click)="onNoClick()">
       Cancel
     </button>
