@@ -16,8 +16,8 @@ import { TableDialogComponent } from './shared/components/table-dialog/table-dia
     BrowserModule,
     CoreModule,
     NgxsModule.forRoot([ProspectorState]),
-    NgxsReduxDevtoolsPluginModule.forRoot({ name: 'Test Alore' }),
-    NgxsLoggerPluginModule.forRoot(),
+    // NgxsReduxDevtoolsPluginModule.forRoot({ name: 'Test Alore' }),
+    // NgxsLoggerPluginModule.forRoot(),
   ],
   entryComponents: [SegmentDialogComponent, TableDialogComponent],
   declarations: [
